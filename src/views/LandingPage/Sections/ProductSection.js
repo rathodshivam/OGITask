@@ -35,7 +35,7 @@ export default function ProductSection() {
         <GridContainer>
           <GridItem xs={4} sm={4} md={4}>
             <InfoArea
-              title="Free Chat"
+              title="Task Management"
               description="Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough."
               icon={Chat}
               iconColor="info"
@@ -44,7 +44,7 @@ export default function ProductSection() {
           </GridItem>
           <GridItem xs={4} sm={4} md={4}>
             <InfoArea
-              title="Verified Users"
+              title="Save on Dropbox"
               description="Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough."
               icon={VerifiedUser}
               iconColor="success"
@@ -53,7 +53,7 @@ export default function ProductSection() {
           </GridItem>
           <GridItem xs={4} sm={4} md={4}>
             <InfoArea
-              title="Fingerprint"
+              title="Export / Import"
               description="Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough."
               icon={Fingerprint}
               iconColor="danger"

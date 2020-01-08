@@ -19,6 +19,8 @@ import CardHeader from "components/Card/CardHeader.js";
 import CardFooter from "components/Card/CardFooter.js";
 import CustomInput from "components/CustomInput/CustomInput.js";
 
+import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
+
 import styles from "assets/jss/material-kit-react/views/loginPage.js";
 
 import image from "assets/img/bg7.jpg";
@@ -27,11 +29,11 @@ const useStyles = makeStyles(styles);
 
 export default function LoginPage(props) {
   const [cardAnimaton, setCardAnimation] = React.useState("cardHidden");
-  setTimeout(function() {
+  setTimeout(function () {
     setCardAnimation("");
   }, 700);
 
-  var isLogin=false;
+  var isLogin = false;
   const classes = useStyles();
   const { ...rest } = props;
   return (
@@ -74,39 +76,47 @@ export default function LoginPage(props) {
                           </InputAdornment>
                         )
                       }}
-					/>	
-				<p>We sent a one-time verification code to your email.
+                    />
+                    <p>We sent a one-time verification code to your email.
 				Please type or paste the code below.</p>
-					<CustomInput
-					labelText="Code..."
-					id="code"
-					formControlProps={{
-					  fullWidth: true
-					}}
-					inputProps={{
-					  type: "Code",
-					  endAdornment: (
-						<InputAdornment position="end">
-						<Icon className={classes.inputIconsColor}>
-						lock
+                    <CustomInput
+                      labelText="Code..."
+                      id="code"
+                      formControlProps={{
+                        fullWidth: true
+                      }}
+                      inputProps={{
+                        type: "Code",
+                        endAdornment: (
+                          <InputAdornment position="end">
+                            <Icon className={classes.inputIconsColor}>
+                              lock
 					  </Icon>
-						</InputAdornment>
-					  )
-					}}
-				  /> 
-                  </CardBody>
-                  <CardFooter className={classes.cardFooter}>
-                    <Button simple color="primary" size="lg">
-                      Login
+                          </InputAdornment>
+                        )
+                      }}
+                    />
+
+                    <div style={{ 'text-align': 'center' }}>
+                      <Button simple color="primary" size="lg">
+                        Login
                     </Button>
-                  </CardFooter>
+                    </div>
+                    <div style={{ 'text-align': 'right', marginTop: -20 }}>
+                      <p>Don't have account?
+                      <Link to="/signup">
+                          <Button simple color="primary" size="lg"
+                          > Signup</Button>
+                        </Link>
+                      </p>
+                    </div>
+                  </CardBody>
                 </form>
               </Card>
             </GridItem>
           </GridContainer>
         </div>
-        {/* <Footer whiteFont /> */}
       </div>
-    </div>
+    </div >
   );
 }

@@ -48,7 +48,8 @@ export default function Parallax(props) {
       className={parallaxClasses}
       style={{
         ...style,
-        // backgroundImage: "url(" + image + ")",
+        height:720,
+        backgroundImage: "url(" + image + ")",
         transform: transform
       }}
     >
