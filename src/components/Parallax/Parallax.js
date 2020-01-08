@@ -14,8 +14,8 @@ const useStyles = makeStyles(styles);
 export default function Parallax(props) {
   let windowScrollTop;
   if (window.innerWidth >= 768) {
-    windowScrollTop = window.pageYOffset / 3;
-  } else {
+  windowScrollTop = window.pageYOffset / 3;
+  } else  {
     windowScrollTop = 0;
   }
   const [transform, setTransform] = React.useState(
@@ -48,7 +48,7 @@ export default function Parallax(props) {
       className={parallaxClasses}
       style={{
         ...style,
-        backgroundImage: "url(" + image + ")",
+        // backgroundImage: "url(" + image + ")",
         transform: transform
       }}
     >

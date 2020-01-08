@@ -35,7 +35,7 @@ export default function HeaderLinks(props) {
         >
           <Button
             color="transparent"
-            href="https://localhost:3000/login"
+            href="http://localhost:3000/login"
             className={classes.navLink}
           >
             <i className={classes.socialIcons + " fa fa-user"} />

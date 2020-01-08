@@ -4,7 +4,7 @@ import classNames from "classnames";
 import { makeStyles } from "@material-ui/core/styles";
 
 import Header from "components/Header/Header.js";
-import Footer from "components/Footer/Footer.js";
+import Footer from "components/Footer.js";
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 import Button from "@material-ui/core/Button";
@@ -25,6 +25,7 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import { CenterFocusStrongOutlined } from "@material-ui/icons";
+import CardHeader from "components/Card/CardHeader.js";
 
 
 
@@ -50,50 +51,50 @@ export default function LandingPage(props) {
                 fixed
                 changeColorOnScroll={{
                     height: 400,
-                    color: "info"
+                    color: "white"
                 }}
                 {...rest} />
             <Parallax filter image={require("assets/img/landing-bg.jpg")}>
                 <div className={classes.container}>
                     <GridContainer>
-                        <GridItem xs={12} sm={12} md={6}>
+                        <GridItem xs={6} sm={6} md={6}>
                             <GridContainer>
-                                <GridItem xs={12} sm={12} md={6}>
+                                <GridItem xs={3} sm={3} md={6}>
                                     <h1 className={classes.title}><strong>Overwhelmed?</strong> We can help</h1>
                                 </GridItem>
                             </GridContainer>
                             <GridContainer>
-                                <GridItem xs={12} sm={12} md={6}>
+                                <GridItem xs={3} sm={3} md={6}>
                                     <h4>
                                         OGItask offers a simpler way to stay organized. If you have a crazy job or an ambitious project, we will be your trusty sidekick.
                             </h4>
                                 </GridItem>
                             </GridContainer>
                         </GridItem>
-                        <GridItem xs={12} sm={12} md={6}>
+                        <GridItem xs={6} sm={6} md={6}>
                             <Card className={classes.card} style={{ marginTop: 100, paddingTop: 20 }}>
                                 <CardContent>
                                     <GridContainer>
-                                        <GridItem xs={12} sm={12} md={9}>
+                                        <GridItem xs={9} sm={9} md={9}>
                                             <TextField
                                                 required
                                                 size="small"
-                                                id="filled-required"
+                                                id="required"
                                                 label="Email"
                                                 placeholder="Enter Your Email"
                                                 style={{ display: "flex" }}
-                                                variant="filled"
+
                                             />
                                         </GridItem>
-                                        <GridItem xs={12} sm={12} md={3}>
-                                            <Button size="medium" color="info">
+                                        <GridItem xs={3} sm={3} md={3}>
+                                            <Button size="medium" color="danger">
                                                 Sign Up
                                             </Button>
                                         </GridItem>
                                     </GridContainer>
                                     <h4 style={{ textAlign: "center", fontSize: 15 }}>
                                         Already have an account? &nbsp; &nbsp;
-                                    <Button size="small" >
+                                    <Button href="/login" size="small" >
                                             Login
                                             </Button>
                                     </h4>
@@ -106,11 +107,11 @@ export default function LandingPage(props) {
             <div className={classNames(classes.main, classes.mainRaised)}>
                 <div className={classes.container}>
                     <ProductSection />
-                    <TeamSection />
-                    <WorkSection />
+                    {/* <TeamSection />
+                    <WorkSection /> */}
                 </div>
             </div>
-            <Footer />
+            {/* <Footer /> */}
         </div>
     );
 

@@ -1,53 +1,112 @@
-import React, { Component } from 'react';
-import "../App.css";
-import Button from '@material-ui/core/Button';
-import { makeStyles } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
-class Login extends Component {
-  constructor(props) {
-    super(props)
-  }
-  
-  render() {
-    return (
-		<div className="container-fluid">
-		  <div className="row padding">
-			<div className="col-sm-12 head">
-			<img onClick={()=> this.props.history.push('/')} src={require('../assets/images/logo.png')} style={{width:'10%'}}/>
-		    <button className="btn btn-secondary btn-login float-right" 
-			onClick={()=> this.props.history.push('/signup')}>Sign Up</button>
-			</div>
-		  </div>
-		   <div className="row">
-				<div className="col-sm-12">
-					<div className="form">
-						<div className="row justify-content-center align-items-center h-100">
-							<h4><b>Log in to OGItask</b></h4>
-						</div>
-					    <div className="row justify-content-center align-items-center h-100">
-							<div className="col col-sm-6 col-md-6 col-lg-4 col-xl-3">
-								<form action="">
-									<div className="form-group">
-										<TextField id="outlined-secondary"label="Email"variant="outlined" 
-										style={{
-									width:"100%"}}/>
-									</div>
+import React from "react";
+// @material-ui/core components
+import { makeStyles } from "@material-ui/core/styles";
+import InputAdornment from "@material-ui/core/InputAdornment";
+import Icon from "@material-ui/core/Icon";
+// @material-ui/icons
+import Email from "@material-ui/icons/Email";
+import People from "@material-ui/icons/People";
+// core components
+import Header from "components/Header/Header.js";
+import HeaderLinks from "components/Header/HeaderLinks.js";
+import Footer from "components/Footer/Footer.js";
+import GridContainer from "components/Grid/GridContainer.js";
+import GridItem from "components/Grid/GridItem.js";
+import Button from "components/CustomButtons/Button.js";
+import Card from "components/Card/Card.js";
+import CardBody from "components/Card/CardBody.js";
+import CardHeader from "components/Card/CardHeader.js";
+import CardFooter from "components/Card/CardFooter.js";
+import CustomInput from "components/CustomInput/CustomInput.js";
 
-									<div className="form-group">
-									<Button variant="contained" color="primary" style={{backgroundColor:'#0093BF',
-									width:"100%"}}>
-										Sign In
-									</Button>
-										
-									</div>
-								</form>
-							</div>
-						</div>
-					</div>
-				</div>
-		  </div>	
-		</div>
-      );
-  }
+import styles from "assets/jss/material-kit-react/views/loginPage.js";
+
+import image from "assets/img/bg7.jpg";
+
+const useStyles = makeStyles(styles);
+
+export default function LoginPage(props) {
+  const [cardAnimaton, setCardAnimation] = React.useState("cardHidden");
+  setTimeout(function() {
+    setCardAnimation("");
+  }, 700);
+
+  var isLogin=false;
+  const classes = useStyles();
+  const { ...rest } = props;
+  return (
+    <div>
+      <Header
+        absolute
+        color="transparent"
+        brand="OGITask"
+        rightLinks={<HeaderLinks />}
+        {...rest}
+      />
+      <div
+        className={classes.pageHeader}
+        style={{
+          backgroundImage: "url(" + image + ")",
+          backgroundSize: "cover",
+          backgroundPosition: "top center"
+        }}
+      >
+        <div className={classes.container}>
+          <GridContainer justify="center">
+            <GridItem xs={12} sm={12} md={4}>
+              <Card className={classes[cardAnimaton]}>
+                <form className={classes.form}>
+                  <CardHeader color="primary" className={classes.cardHeader}>
+                    <h4>Login</h4>
+                  </CardHeader>
+                  <CardBody>
+                    <CustomInput
+                      labelText="Email..."
+                      id="email"
+                      formControlProps={{
+                        fullWidth: true
+                      }}
+                      inputProps={{
+                        type: "email",
+                        endAdornment: (
+                          <InputAdornment position="end">
+                            <Email className={classes.inputIconsColor} />
+                          </InputAdornment>
+                        )
+                      }}
+					/>	
+				<p>We sent a one-time verification code to your email.
+				Please type or paste the code below.</p>
+					<CustomInput
+					labelText="Code..."
+					id="code"
+					formControlProps={{
+					  fullWidth: true
+					}}
+					inputProps={{
+					  type: "Code",
+					  endAdornment: (
+						<InputAdornment position="end">
+						<Icon className={classes.inputIconsColor}>
+						lock
+					  </Icon>
+						</InputAdornment>
+					  )
+					}}
+				  /> 
+                  </CardBody>
+                  <CardFooter className={classes.cardFooter}>
+                    <Button simple color="primary" size="lg">
+                      Login
+                    </Button>
+                  </CardFooter>
+                </form>
+              </Card>
+            </GridItem>
+          </GridContainer>
+        </div>
+        {/* <Footer whiteFont /> */}
+      </div>
+    </div>
+  );
 }
-export default Login;
