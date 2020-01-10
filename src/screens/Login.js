@@ -16,10 +16,9 @@ import Button from "components/CustomButtons/Button.js";
 import Card from "components/Card/Card.js";
 import CardBody from "components/Card/CardBody.js";
 import CardHeader from "components/Card/CardHeader.js";
-import CardFooter from "components/Card/CardFooter.js";
 import CustomInput from "components/CustomInput/CustomInput.js";
 
-import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 import styles from "assets/jss/material-kit-react/views/loginPage.js";
 
@@ -98,9 +97,11 @@ export default function LoginPage(props) {
                     />
 
                     <div style={{ 'text-align': 'center' }}>
-                      <Button simple color="primary" size="lg">
-                        Login
+                      <Link to="/sidebar">
+                        <Button simple color="primary" size="lg">
+                          Login
                     </Button>
+                      </Link>
                     </div>
                     <div style={{ 'text-align': 'right', marginTop: -20 }}>
                       <p>Don't have account?

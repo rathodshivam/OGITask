@@ -20,7 +20,6 @@ import ProductSection from "../views/LandingPage/Sections/ProductSection.js";
 import TeamSection from "../views/LandingPage/Sections/TeamSection.js";
 import WorkSection from "../views/LandingPage/Sections/WorkSection.js";
 import TextField from '@material-ui/core/TextField';
-
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
@@ -91,7 +90,7 @@ export default function LandingPage(props) {
                                     <Link to="/login"> <Button size="small" >
                                                     Login
                                             </Button>
-                                         </Link>   </h4>
+                                                </Link>   </h4>
                                         </CardContent>
                                     </Card>
                                 </GridItem>
