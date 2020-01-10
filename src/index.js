@@ -9,6 +9,7 @@ import "assets/scss/material-kit-react.scss?v=1.8.0";
 import Dashboard from "screens/Dashboard";
 import Sidebar from "screens/Sidebar";
 
+
 var hist = createBrowserHistory();
 
 ReactDOM.render(

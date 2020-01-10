@@ -82,9 +82,13 @@ export default function LandingPage(props) {
                                                 style={{ display: "flex" }}
 
                                             />
-                                            <Button size="medium" color="danger" style={{ 'margin-top': '15px' }}>
-                                                Sign Up
+                                           
+                                            <Link to="/dashboard">
+                                            <Button size="medium" color="danger" style={{ 'margin-top': '15px' }} >
+                                            Sign Up
                                             </Button>
+                                            </Link>
+                                             
                                             <h4 style={{ textAlign: "center", fontSize: 15 }}>
                                                 Already have an account? &nbsp; &nbsp;
                                     <Link to="/login"> <Button size="small" >
