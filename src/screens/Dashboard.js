@@ -178,7 +178,7 @@ export default function Dashboard(props) {
           [classes.appBarShift]: open,
         })}
       >
-        <Toolbar style={{backgroundColor:"#0071B7"}}>
+        <Toolbar style={{backgroundColor:"#75B700"}}>
           <IconButton
             color="inherit"
             aria-label="open drawer"
