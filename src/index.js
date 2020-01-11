@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { createBrowserHistory } from "history";
-import { HashRouter as Router, Route, Switch } from "react-router-dom";
+import { HashRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import Login from './screens/Login'
 import SignUp from './screens/SignUp'
 import Landing from './screens/Landing';
@@ -12,14 +12,29 @@ import Sidebar from "screens/Sidebar";
 
 var hist = createBrowserHistory();
 
+
+const isLoggedIn = () => {
+  var isAuthenticated = false;
+  var token = localStorage.getItem('token');
+  if (token) {
+    isAuthenticated = true;
+  }
+  console.log(token);
+  return isAuthenticated;
+}
+
+const PrivateRoute = ({ component: Component, ...rest }) => (
+  < Route {...rest} render={(props) => (
+    isLoggedIn() === true ? <Component {...props} /> : <Redirect to='/' />)} />
+)
+
 ReactDOM.render(
   <Router history={hist}>
     <Switch>
       <Route path="/login" component={Login} />
       <Route path="/signup" component={SignUp} />
       <Route path="/" exact component={Landing} />
-      <Route path="/dashboard" component={Dashboard} />
-      <Route path="/sidebar" component={Sidebar} />
+      <PrivateRoute path="/sidebar" exact component={Sidebar} />
     </Switch>
   </Router>,
   document.getElementById("root")

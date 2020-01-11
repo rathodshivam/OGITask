@@ -48,19 +48,36 @@ export default class LandingPage extends Component {
             let [isSendCode, setSendCode] = useState(false);
             let [email, setEmail] = useState('');
             let [code, setCode] = useState('');
-
             const login = () => {
-                isSendCode = true;
-                console.log(email);
-                console.log(code);
-                console.log(isSendCode);
-                API.login({ "username": email, 'password': code, 'grant_type': 'password' }).then(
-                    res => {
-                        console.log(res);
-                    }).catch(
-                        error => {
-                            console.log(error);
-                        });
+                if (!isSendCode) {
+                    API.auth({ map: { "email": email, 'allowSignUp': 'true' } }).then(
+                        res => {
+                            setSendCode(true);
+                            console.log(isSendCode);
+                            console.log(res);
+                        }).catch(
+                            error => {
+                                console.log(error);
+                            });
+                } else {
+                    if (code.length > 1) {
+                        let formData = new FormData();
+                        formData.append('grant_type', "password");
+                        formData.append('username', email);
+                        formData.append('password', code);
+                        API.login(formData).then(
+                            res => {
+                                console.log('oauth', res);
+                                localStorage.setItem('token', JSON.stringify(res));
+                                this.props.history.push('/sidebar')
+                            }).catch(
+                                error => {
+                                    console.log(error);
+                                });
+                    }
+                    //error
+                }
+
             }
 
             return (
@@ -104,7 +121,7 @@ export default class LandingPage extends Component {
                                                         onChange={(e) => { setEmail(e.target.value); setSendCode(false); }}
                                                     />
                                                     <Button size="medium" color="danger"
-                                                        onClick={() => { console.log("ravi"); login(); setSendCode(true) }} style={{ 'margin-top': '15px' }} >
+                                                        onClick={() => { console.log("ravi"); login(); }} style={{ 'margin-top': '15px' }} >
                                                         Sign Up
                                                 </Button>
                                                     {

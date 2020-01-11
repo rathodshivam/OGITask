@@ -1,6 +1,6 @@
-export const API_BASE_URL = 'http://localhost:8081/oqltask';
-export const API = '/api';
+export const API_BASE_URL = 'http://192.168.43.26:8081/ogitasks';
+export const API = '/api/v1';
 export const OAUTH = '/oauth';
 export const TOKEN = '/token';
-export const USER = '/user';
-export const CREATE = '/create';
+export const AUTH = '/auth';
+export const SLASH = '/';
